@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="img/logo.png">
+    <title>ChixSaya Menu & Flavors</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-name">
+            <div class="logo">
+                <img src="img/logo.png" alt="ChixSaya Est. 2016 Logo">
+            </div>
+            <h2 class="header-name">ChixSaya</h2>
+        </div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Our Menu</h1>
+            <p>From classic Soy Garlic to our unique signature sauces, find your perfect flavor match.</p>
+        </section>
+
+        <!-- POPULAR MEALS -->
+        <section class="menu-category">
+            <h2>Popular</h2>
+            <div class="product-grid" id="popularGrid"></div>
+        </section>
+
+        <!-- GROUP MEALS -->
+        <section class="menu-category">
+            <h2>Group Meals</h2>
+            <div class="product-grid" id="groupGrid"></div>
+        </section>
+
+        <!-- CHICKEN WINGS -->
+        <section class="menu-category">
+            <h2>Rice Meal</h2>
+            <div class="product-grid" id="wingsGrid"></div>
+        </section>
+
+        <!-- FRIES -->
+        <section class="menu-category">
+            <h2>Snacks & Pasta</h2>
+            <div class="product-grid" id="snacks_pastaGrid"></div>
+        </section>
+
+        <!-- FIESTA SIZE BILAO -->
+        <section class="menu-category">
+            <h2>Fiesta Size Bilao</h2>
+            <div class="product-grid" id="bilaoGrid"></div>
+        </section>
+
+        <!-- SIDES -->
+        <section class="menu-category">
+            <h2>Others</h2>
+            <div class="product-grid" id="othersGrid"></div>
+        </section>
+        
+        <!-- FLAVOR LIST (rendered by JS) -->
+        <section class="menu-category flavors">
+            <h2>ChixSaya Signature Flavors</h2>
+            <div class="list" id="flavorList"></div>
+        </section>
+    </main>
+
+    <!-- FLAVOR SELECTION -->
+    <div id="flavorModal" class="flavor-modal">
+        <div class="flavor-modal-content">
+            <div class="flavor-modal-header">
+                <h2>Choose Your Flavor</h2>
+                <button id="closeFlavorModal" class="close-flavor-modal">&times;</button>
+            </div>
+            <div class="flavor-modal-body">
+                <p class="flavor-instruction">Select your preferred flavor:</p>
+                <div id="flavorWarning" class="flavor-warning">
+                    ⚠️              Please select a flavor before adding to cart!
+                </div>
+                <div class="flavor-options" id="flavorOptionsContainer"></div>
+            </div>
+            <div class="flavor-modal-footer">
+                <button id="confirmFlavor" class="cta-button">Confirm & Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOPPING CART -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="closeCart" class="close-cart">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <p>Total Items: <span id="totalItems">0</span></p>
+                <p class="cart-total">Total: ₱<span id="totalPrice">0.00</span></p>
+            </div>
+            <button id="checkoutBtn" class="cta-button checkout-btn">Checkout</button>
+        </div>
+    </div>
+
+    <!-- CART -->
+    <button id="cartToggle" class="cart-toggle">
+        🛒 <span id="cartCount" class="cart-count">0</span>
+    </button>
+
+    <!-- CHECKOUT CONFIRMATION -->
+    <div id="checkoutModal" class="checkout-modal">
+        <div class="checkout-modal-content">
+            <div class="checkout-modal-header">
+                <h2>Confirm Your Order</h2>
+                <button id="closeCheckoutModal" class="close-checkout-modal">&times;</button>
+            </div>
+            <div class="checkout-modal-body">
+                <p class="checkout-message">Review your order before confirming:</p>
+                <div id="checkoutItemsList" class="checkout-items-list"></div>
+                <div class="checkout-summary">
+                    <div class="checkout-total-row">
+                        <span class="checkout-label">Total:</span>
+                        <span class="checkout-total-price">₱<span id="checkoutTotal">0.00</span></span>
+                    </div>
+                </div>
+                <p class="checkout-note">🕐 Your order will be ready in 20-30 minutes!</p>
+            </div>
+            <div class="checkout-modal-footer">
+                <button id="confirmCheckoutBtn" class="cta-button">Confirm Order</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+    <footer>
+        <p>&copy; 2024 ChixSaya. All Rights Reserved. | Follow ChixSaya!</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/chixsaya" target="_blank">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
